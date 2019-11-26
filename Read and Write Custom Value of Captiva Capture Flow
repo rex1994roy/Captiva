@@ -1,0 +1,15 @@
+public void customval(IBatchContext context, IBatchNode batchNode)
+        {
+                    string s = "Hello";
+                    
+              //getting access to custom value at document level
+                    IBatchNode docCustomValuesNode = context.GetStepNode(document, "CustomValues");
+              //writting string "s" to custom value of Capture Flow name "ctmvarstring"
+                    docCustomValuesNode.NodeData.ValueSet.WriteString("ctmvarstring",s);
+                    
+              //getting access to custom value at page level
+                    IBatchNode docCustomValuesNode1 = context.GetStepNode(page, "CustomValues");
+              //getting custom value of Capture Flow name "ctmvarstring"  to string "readstr"
+                    String readstr = docCustomValuesNode1.NodeData.ValueSet.ReadString("ctmvarstring");
+              
+        }
